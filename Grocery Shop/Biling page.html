@@ -1,0 +1,263 @@
+<html>
+<head>
+    <style>
+        table{
+            width: 100%;
+            font: 17px Calibri;
+            color: floralwhite;
+            border: 1px ;
+        }
+        #paytype{
+            padding: 20px;
+        }
+        th, td {
+            border: solid 1px ;
+            border-collapse: collapse;
+            padding: 10px 5px;
+            text-align: center;
+        }
+        body{
+            background: linear-gradient(to right,dodgerblue,darkslateblue);
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            overflow: hidden;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 0px 10px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            padding: 11px;
+            background-color: rgba(0,0,0,.5) ;
+            border: 1px solid white;
+            border-radius: 12px;
+        }
+        #addRow,#btn,.save,.edit,#confirm{
+            background-color: rgba(0,0,0,.5);
+            border: 1px solid white;
+            border-radius: 12px;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            margin-left: 20px;
+            width: auto;
+        }
+        #addRow:hover{
+            background-color: darkblue ;
+        }
+        #btn:hover{
+            background-color: darkblue ;
+        }
+        #save_button:hover{
+            background-color: darkblue ;
+        }
+        #edit_button:hover{
+            background-color: darkblue ;
+        }
+        #avatar{
+            width:25px;
+            float: right;
+            margin-top: 35px;
+            margin-right: 10px;
+        }
+        #invoice{
+            float:right;
+        }
+        #addRow{
+            float: right;
+        }
+        #totalprice{
+            padding: 10px;
+        }
+        #logo{
+            width: 100px;
+        }
+        input{
+            background: rgba(0,0,0,.5);
+            border: 1px white;
+            padding: 10px;
+            color:white;
+        }
+        #payment{
+            background: rgba(0,0,0,.5);
+            color: white;
+            width: 150px;
+            height: 60px;
+        }
+        p{
+            color: white;
+        }
+    </style>
+        <title>Billing section</title>
+</head>
+<body>
+<img src="1.png" id="logo">
+<img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" id="avatar" >
+<div id="wrapper">
+    <ul>
+        <li><a href="employeeloginhome.html">Home</a></li>
+        <li><a>Print</a></li>
+        <li><a>Save</a></li>
+        <li><a href="2Employee%20login.html">Log out</a></li>
+    </ul>
+    <p align="left">Date of purchase: <input type="date" id="date"></p>
+    <p align="right">Invoice No:<input type="text" id="invoice"></p><br>
+    <b>Total Price : <input type="text" id="totalprice"  onfocus="generateprice();"></b>
+    <button class="add" id="addRow"onclick="add_row();">ADD ROW</button><br>
+    <p align="center">(Prototype: price of each item set default as 10!! qty * 10=price )</p>
+    <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Tax</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="new_name"></td>
+            <td><input type="text" id="new_country"></td>
+            <td><input type="text" id="new_category"></td>
+            <td><input type="text" id="new_quantity" onchange="calculateprice();"></td>
+            <td><input type="text" id="new_age"></td>
+            <td><input type="text" id="new_price"></td>
+            <td></td>
+        </tr>
+    </table>
+        <table id="paytype">
+        <tr>
+            <th>Payment Method:</th>
+        <td class="payment">
+            <select id="payment">
+                <option value="1">Debit Card</option>
+                <option value="2">Credit Card</option>
+                <option value="3">Cash</option>
+                <option value="4">Coupons</option>
+                <option value="5">Online Transaction</option>
+            </select>
+
+            <button id="confirm">Proceed</button>
+        </tr>
+    </table>
+</div>
+<script>
+    function edit_row(no)
+    {
+        document.getElementById("edit_button"+no).style.display="none";
+        document.getElementById("save_button"+no).style.display="block";
+
+        var name=document.getElementById("name_row"+no);
+        var country=document.getElementById("country_row"+no);
+        var category=document.getElementById("category_row"+no);
+        var quantity=document.getElementById("quantity_row"+no);
+        var age=document.getElementById("age_row"+no);
+        var price=document.getElementById("price_row"+no);
+
+        var name_data=name.innerHTML;
+        var country_data=country.innerHTML;
+        var category_data=category.innerHTML;
+        var quantity_data=quantity.innerHTML;
+        var age_data=age.innerHTML;
+        var price_data= price.innerHTML;
+
+        name.innerHTML="<input type='text' id='name_text"+no+"' value='"+name_data+"'>";
+        country.innerHTML="<input type='text' id='country_text"+no+"' value='"+country_data+"'>";
+        category.innerHTML="<input type='text' id='category_text"+no+"' value='"+category_data+"'>";
+        quantity.innerHTML="<input type='text' id='quantity_text"+no+"' value='"+quantity_data+"'onchange=\"calculateprice();\">";
+        age.innerHTML="<input type='text' id='age_text"+no+"' value='"+age_data+"'>";
+        price.innerHTML="<input type='text' id='price_text"+no+"' value='"+price_data+"'>";
+    }
+
+    function save_row(no)
+    {
+        var name_val=document.getElementById("name_text"+no).value;
+        var country_val=document.getElementById("country_text"+no).value;
+        var category_val=document.getElementById("category_text"+no).value;
+        var age_val=document.getElementById("age_text"+no).value;
+        var quantity_val=document.getElementById("quantity_text"+no).value;
+        var price_val=document.getElementById("price_text"+no).value;
+
+        document.getElementById("name_row"+no).innerHTML=name_val;
+        document.getElementById("country_row"+no).innerHTML=country_val;
+        document.getElementById("category_row"+no).innerHTML=category_val;
+        document.getElementById("quantity_row"+no).innerHTML=quantity_val;
+        document.getElementById("age_row"+no).innerHTML=age_val;
+        document.getElementById("price_row"+no).innerHTML= price_val;
+
+        document.getElementById("edit_button"+no).style.display="block";
+        document.getElementById("save_button"+no).style.display="none";
+    }
+
+    function delete_row(no)
+    {
+        document.getElementById("row"+no+"").outerHTML="";
+    }
+
+    function add_row()
+    {
+        var new_name=document.getElementById("new_name").value;
+        var new_country=document.getElementById("new_country").value;
+        var new_category=document.getElementById("new_category").value;
+        var new_quantity=document.getElementById("new_quantity").value;
+        var new_age=document.getElementById("new_age").value;
+        var new_price=document.getElementById("new_price").value;
+
+        var table=document.getElementById("data_table");
+        var table_len=(table.rows.length)-1;
+        var row = table.insertRow(table_len).outerHTML=
+            "<tr id='row"+table_len+"'>" +
+                "<td id='name_row"+table_len+"'>"+new_name+"</td>" +
+                "<td id='country_row"+table_len+"'>"+new_country+"</td>" +
+                "<td id='category_row"+table_len+"'>"+new_category+"</td>" +
+                "<td id='quantity_row"+table_len+"'>"+new_quantity+"</td>"+
+                "<td id='age_row"+table_len+"'>"+new_age+"</td>" +
+                "<td id='price_row"+table_len+"'>"+new_price+"</td>"+
+                "<td>" +
+                    "<button id='edit_button"+table_len+"' class='edit' onclick='edit_row("+table_len+")'>Edit</button> " +
+                    "<button id='save_button"+table_len+"' class='save' onclick='save_row("+table_len+")'>Save</button>" +
+                    "<button class='delete' id='btn' onclick='delete_row("+table_len+")'>Delete</button>" +
+                "</td>" +
+            "</tr>";
+
+        document.getElementById("new_name").value="";
+        document.getElementById("new_country").value="";
+        document.getElementById("new_quantity").value="";
+        document.getElementById("new_age").value="";
+        document.getElementById("new_price").value="";
+    }
+
+    function calculateprice() {
+        var x = document.getElementById("new_quantity").value;
+        var tot = x * 10;
+        document.getElementById("new_price").value = tot;
+    }
+
+    function generateprice() {
+        for(var i=0;i<new_price.length;i++) {
+            var x = document.getElementById("totalprice").value + document.getElementById("new_price").value;
+            document.getElementById("totalprice").value = x;
+        }
+    }
+</script>
+</body>
+</html>

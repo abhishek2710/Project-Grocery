@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<h1 align=center></h1>
+<style>
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+th,
+td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+th:first-child {
+  border-top-left-radius: 5px;
+  text-align: left;
+}
+th:last-child {
+  border-top-right-radius: 5px;
+}
+tbody tr:nth-child(even) {
+  background: white;
+}
+tbody tr:nth-child(odd) {
+  background: white;
+}
+td {
+  border-bottom: 1px solid #7c7c80;
+  border-right: 1px solid #7c7c80;
+}
+td:first-child {
+  border-left: 1px solid #7c7c80;
+}
+fieldset{
+   
+    width: 45%;
+    margin: 0;
+    padding: 0;
+   text-align: center;
+	
+}
+.book-title {
+  color: #395870;
+  display: block;
+}
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
+}
+
+.item-qty {
+  text-align: center;
+}
+.item-price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
+}
+tfoot {
+  text-align: right;
+}
+tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+ table tr:not(:first-child){
+                cursor: pointer;transition: all .25s ease-in-out;
+            }
+            table tr:not(:first-child):hover{background-color: white;}
+
+body{
+	background: linear-gradient(to right,dodgerblue,darkslateblue);
+	}
+	input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+input[type=number]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+	 ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            overflow: hidden;
+
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            padding: 11px;
+            background-color: rgba(0,0,0,.5) ;
+            border: 1px solid white;
+            border-radius: 12px;
+        }
+
+
+</style>
+  <meta charset="UTF-8">
+  <title>customer</title>
+<body>
+<div id="wrapper">
+    <ul>
+        <li><a>Home</a></li>
+       
+        
+        <li><a>Log Out</a></li>
+       
+    </ul>
+<form action="#" name="Customer Registration" bgcolor="cornflowerblue;" onsubmit="return(validate());">
+<fieldset>
+<legend><h2><b>Supplier Registration </b></h2></legend>
+
+
+Supplier Id<input type="text"name="cusid"id="cusid" size="16"><br><br>
+Name <input type="text" name="name" id="name"size="20"><br><br>
+Address <input type="text" name="add" id="add"size="20"><br><br>
+ Email Id <input type="email" name="emailid" id="emailid" size="20"><br><br>
+ Mobile <input type="number" name="mob" id="mob" size="20"><br><br>
+<input type="submit" value="Submit" /><br>
+</fieldset>
+
+</form>
+</body>
+<head><h2><b>Supplier Details</b></h2></head>
+        <button onclick="editRow();">Edit and Save</button><br><br>
+  <table  id="myTable" >
+  <thead>
+    <tr>
+      <th scope="col" colspan="1">Supplier id</th>
+<th scope="col" colspan="1">Name</th>
+<th scope="col" colspan="1">Address</th>
+      
+      
+<th scope="col">Email Id</th>
+<th scope="col">Mobile</th>
+
+
+<th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     
+       
+     
+      
+<td strong class="book-title">sp120</strong></td>
+      <td class="item-price">Anuraj</td>
+<td class="item-price">Kottarakkara</td>
+
+<td class="item-price">anuss@gmail.com</td>
+<td class="item-price">9876565643</td>
+
+
+<td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td>
+    </tr>
+    <tr>
+      
+<td strong class="book-title">sp341</strong></td>
+      <td class="item-price">Ram</td>
+<td class="item-price">Kollam</td>
+
+<td class="item-price">ra34rr@gmail.com</td>
+<td class="item-price">8977656709</td>
+<td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+
+     
+     
+    </tr>
+    <tr>
+       
+<td strong class="book-title">sp342</strong></td>
+      <td class="item-price">Sam</td>
+<td class="item-price">Naalanchira</td>
+
+<td class="item-price">ghiis@gmail.com</td>
+<td class="item-price">9987565643</td>
+<td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+    <tr>
+       
+<td strong class="book-title">sp706</strong></td>
+      <td class="item-price">Ebin</td>
+<td class="item-price">Kesavadasapuram</td>
+
+<td class="item-price">poeby@gmail.com</td>
+<td class="item-price">9987875825</td>
+<td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+
+    </tr>
+<tr>   
+<td strong class="book-title">sp300</strong></td>
+      <td class="item-price">Jeevan</td>
+<td class="item-price">Pattom</td>
+
+
+<td class="item-price">jeevas@gmail.com</td>
+<td class="item-price">9987231209</td>
+<td><input type="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+  </tbody>
+ 
+</table>
+<script>
+
+
+
+function deleteRow(i){
+    document.getElementById('myTable').deleteRow(i)
+}
+ var table = document.getElementById("myTable"),rIndex;
+           
+            for(var i = 0; i < table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                    rIndex = this.rowIndex;
+                    console.log(rIndex);
+                   
+                    document.getElementById("cusid").value = this.cells[0].innerHTML;
+                    document.getElementById("name").value = this.cells[1].innerHTML;
+document.getElementById("add").value = this.cells[2].innerHTML;
+ 
+                   
+document.getElementById("emailid").value = this.cells[3].innerHTML;
+document.getElementById("mob").value = this.cells[4].innerHTML;
+
+
+                };
+            }
+           
+           
+           // edit the row
+            function editRow()
+            {
+                table.rows[rIndex].cells[0].innerHTML = document.getElementById("cusid").value;
+                table.rows[rIndex].cells[1].innerHTML = document.getElementById("name").value;
+                table.rows[rIndex].cells[2].innerHTML = document.getElementById("add").value;
+                 
+               
+                table.rows[rIndex].cells[3].innerHTML = document.getElementById("emailid").value;
+                table.rows[rIndex].cells[4].innerHTML = document.getElementById("mob").value;
+
+            }
+           
+
+</script>
+
+
+</body>
+</html>
+

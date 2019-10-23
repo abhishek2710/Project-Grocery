@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+th,
+td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+th:first-child {
+  border-top-left-radius: 5px;
+  text-align: left;
+}
+th:last-child {
+  border-top-right-radius: 5px;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+tbody tr:nth-child(odd) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+.book-title {
+  color: #395870;
+  display: block;
+}
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
+}
+
+.item-qty {
+  text-align: center;
+}
+.item-price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
+}
+tfoot {
+  text-align: right;
+}
+tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+ table tr{
+                cursor: pointer;transition: all .25s ease-in-out;
+            }
+            table tr:hover{background-color: #D3D3D3;}
+.book-title {
+  font-weight: 900;
+}
+body {
+    background-color: black;
+}
+ input[type=text]{
+    width:13%;
+    border:2px solid #aaa;
+    border-radius:6px;
+    margin:6px 0;
+    outline:none;
+    padding:4px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+ 
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+.button {
+  border-radius: 3px;
+  background-color: #6A5ACD ;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 1px;
+  width: 60px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.fixed_header tbody{
+  display:block;
+  overflow:auto;
+  height:200px;
+  width:100%;
+}
+.fixed_header thead tr{
+  display:block;
+}
+.table-container {
+    height: 20em;
+}
+table {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
+table thead {
+    /* head takes the height it requires,
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+}
+table tbody {
+    /* body takes all the remaining available space */
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+}
+table tbody tr {
+    width: 100%;
+}
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+ul {
+list-style-type:none;
+margin:0;
+padding:0;
+font-size:15 px;
+overflow:hidden;
+cursor: pointer;transition: all .25s ease-in-out;
+}
+li{
+float:right;
+}
+li a{
+display:block;
+color:white;
+text-align:center;
+padding:14px 16px;
+text-decoration:none;
+}
+
+</style>
+  <meta charset="UTF-8">
+  <title>JSON Demo</title>
+</head>
+<body >
+<ul>
+<li><a href="add_inventory_admin.html">Add item</a></li>
+<li><a>Report</a></li>
+<li><a>Home</a></li>
+</ul>
+
+<font color=#6A5ACD><h1 align=center>Inventory</h1>
+
+<label><font color="white"><b>prodct id:</b>   <input type="text"  name="fname" id="fname" br>
+<b>item_name:</b> <input type="text" name="lname" id="lname"><br>
+<b>Quantity: </b><input type="text" name="age" id="age"<br>
+<b>sellng price: </b><input type="text" name="age" id="sell"><br>
+<b>cost price:</b><input type="text" name="age" id="cost"<br>
+ <b>Tax(GST)    :    </b><input type="text" name="age" id="tax"br><br>
+<b> Discount     :  </b><input type="text" name="age" id="dis"br>
+<b> Supplierid  :  </b><input type="text" name="age" id="sup"br>
+</label>
+        <button class="button" onclick="editRow();">Edit &Save</button><br><br>
+
+
+  <input type="text"  align="right" name="search" placeholder="Search..">
+
+<div class="table-container">
+  <table  id="myTable"   >
+  <thead display:block>
+    <tr display:block>
+      <th scope="col" colspan="1">Item id</th>
+<th scope="col" colspan="1">Item name</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Selling Price</th>
+<th scope="col">Cost Price</th>
+<th scope="col">Tax</th>
+<th scope="col">Discount</th>
+<th scope="col">Supplier Id</th>
+<th scope="col">threshold</th>
+
+<th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody display:block>
+    <tr display:block>
+     
+       
+     
+      <td class="item-qty">1</td>
+<td class="book-title">book</td>
+      <td class="item-price">10</td>
+<td class="item-price">30</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">4.2</td>
+<td class="item-price">4.2</td>
+
+
+<td><input type="button"class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td>
+    </tr>
+    <tr display:block>
+      <td class="item-qty">2</td>
+<td class="book-title">Pen</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">4.2</td>
+
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+
+     
+     
+    </tr>
+    <tr display:block>
+       <td class="item-qty">3</td>
+<td class="book-title">choclates</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">6</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">4.2</td>
+
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+    <tr display:block>
+       <td class="item-qty">4</td>
+<td class="book-title">umbrella</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">27</td>
+<td class="item-price">4.2</td>
+
+
+<td class="item-price">27</td>
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+
+    </tr>
+<tr>
+       <td class="item-qty">3</td>
+<td class="book-title">choclates</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">6</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">4.2</td>
+
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+
+<tr display:block>
+       <td class="item-qty">3</td>
+<td class="book-title">choclates</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">6</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">4.2</td>
+
+<td class="item-price">7</td>
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+<tr display:block>
+       <td class="item-qty">3</td>
+<td class="book-title">choclates</td>
+      <td class="item-price">$30.02</td>
+<td class="item-price">$30.02</td>
+<td class="item-price">6</td>
+<td class="item-price">27</td>
+<td class="item-price">27</td>
+<td class="item-price">4.2</td>
+
+<td class="item-price">7</td>
+<td><input type="button" class="button" value="Delete" onclick="deleteRow(this.parentNode.parentNode.rowIndex)"></td
+    </tr>
+  </tbody>
+ 
+</table>
+</div>
+<script>
+
+function deleteRow(i){
+    document.getElementById('myTable').deleteRow(i)
+}
+ var table = document.getElementById("myTable"),rIndex;
+           
+            for(var i = 0; i < table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                    rIndex = this.rowIndex;
+                    console.log(rIndex);
+                   
+                    document.getElementById("fname").value = this.cells[0].innerHTML;
+                    document.getElementById("lname").value = this.cells[1].innerHTML;
+                    document.getElementById("age").value = this.cells[2].innerHTML;
+document.getElementById("sell").value = this.cells[3].innerHTML;
+document.getElementById("cost").value = this.cells[4].innerHTML;
+document.getElementById("tax").value = this.cells[5].innerHTML;
+document.getElementById("dis").value = this.cells[6].innerHTML;
+document.getElementById("sup").value = this.cells[7].innerHTML;
+                };
+            }
+           
+           
+           // edit the row
+            function editRow()
+            {
+                table.rows[rIndex].cells[0].innerHTML = document.getElementById("fname").value;
+                table.rows[rIndex].cells[1].innerHTML = document.getElementById("lname").value;
+                table.rows[rIndex].cells[2].innerHTML = document.getElementById("age").value;
+table.rows[rIndex].cells[3].innerHTML = document.getElementById("sell").value;
+table.rows[rIndex].cells[4].innerHTML = document.getElementById("cost").value;
+table.rows[rIndex].cells[5].innerHTML = document.getElementById("tax").value;
+table.rows[rIndex].cells[6].innerHTML = document.getElementById("dis").value;
+table.rows[rIndex].cells[7].innerHTML = document.getElementById("sup").value;
+            }
+           
+
+</script>
+
+
+</body>
+</html>

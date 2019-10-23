@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+ ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 15px;
+            overflow: hidden;
+
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            padding: 11px;
+            background-color: rgba(0,0,0,.5) ;
+            border: 1px solid white;
+            border-radius: 12px;
+        }
+
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body{
+	background : linear-gradient(to right,dogerblue,darkslateblue);
+	}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+body {
+   background: linear-gradient(to right,dodgerblue,darkslateblue);
+  padding: 5%;
+ }
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.emailid,.mob{
+	margin-left:10px;
+}
+li {
+  display: inline;
+}
+fieldset{
+    float: left;
+    width: 45%;
+    margin: 0;
+    padding: 0;
+   text-align: center;
+
+}
+button{
+	margin-top:15%;
+	width:10%;
+
+	
+}
+
+ 
+  input[type=text]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+input[type=number]:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+    <ul>
+        <li><a>Home</a></li>
+       
+        
+        <li><a>Log Out</a></li>
+       <li><a><b>Save</a><b></li>
+    </ul>
+
+
+  <h1 style=color:black;text-align:center;><b>Employee Registration<b></h1>
+
+
+<section>
+     <body>
+
+
+<table cellpadding="2" width="20%" bgcolor="" align="center"
+cellspacing="2">
+
+<tr>
+<td colspan=2>
+<center><font size=4><b></b></font></center>
+</td>
+</tr>
+
+<tr>
+<td>Employee Id</td>
+<td><input type=text name=empid id="empid" size="30"></td>
+
+</tr>
+
+<tr>
+<td>Name</td>
+<td><input type="text" name="name" id="name"
+size="30"></td>
+
+</tr>
+<tr>
+<td>Gender</td>
+<td><input type="radio" name="sex" value="male" size="10">Male
+<input type="radio" name="sex" value="Female" size="10">Female</td>
+</tr>
+<tr>
+<td>DOB</td>
+<td><input type="date" name="date" id="date" value=""</td>
+</tr>
+</table>
+</form>
+<fieldset>
+<br><legend><b>Contact Details </b></legend>
+
+
+
+  Email Id
+<input type="email" name="emailid" id="emailid" size="28"><br><br>
+  Mobile Num:
+<input type="number" name="mob" id="mob" size="35"><br><br>
+
+  Address
+<input type="text" name="caddress" id="caddress" size="30"><br><br>
+
+
+</fieldset>
+<fieldset id="new">
+
+<br><legend><b>Job Details</b></legend>
+ Designation<select name="Designation" id="desig"><br><br>
+<option value="-1" selected>select..</option>
+<option value="Cashier">Cashier</option>
+<option value="Sales Man">Sales Man</option></select><br>
+<br>Salary<input type="number" name="salary" id="salary" size="20"><br><br>
+ Date Of Join<input type="date" name="date" id="date" value=""><br><br>
+</fieldset>
+
+
+
+
+
+  
+</body>
+</html>
