@@ -1,0 +1,131 @@
+//app.js
+
+const express=require('express');
+const path=require('path');
+//init app
+const app=express();
+//load view engine
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','pug');
+//home route
+app.get('/',function(req,res){
+    let items=[
+        {
+            Item:'******ITEM 1******',
+
+            Item_id:001,
+            Item_name:'Bread',
+            Cost_price:20,
+            Selling_price:30,
+            Quantity:2,
+            Expiry_date:'01/01/2020'
+        },
+        {
+            Item:'******ITEM 2******',
+            Item_id:002,
+            Item_name:'Maggi',
+            Cost_price:10,
+            Selling_price:20,
+            Quantity:3,
+            Expiry_date:'02/02/2022'
+        },
+        {
+            Item:'******ITEM 3******',
+
+            Item_id:003,
+            Item_name:'Milk',
+            Cost_price:20,
+            Selling_price:30,
+            Quantity:4,
+            Expiry_date:'20/20/2020'
+        }
+
+    ];
+    //res.send('HELLO WORLD');
+    res.render('index1',{
+    title:'Display Inventory',
+    items:items
+});
+
+
+
+});
+//add route
+    app.get('/add_inventory',function(req,res){
+        res.render('add_inventory',{
+            title:'Add Item'
+        });
+        
+    });
+app.listen(3000,function(){
+console.log('server started on port 3000');
+});
+
+
+//add_inventory
+h1 Add Inventory
+br
+form(action="/employee",method="POST")
+input(type="hidden" name="_method",value="PUT")
+p Item name
+    br
+    input(type="text", name="name")
+    p Item Id
+    input(type="text", name="id")
+    p Cost price
+    input(type="number", name="cp")
+    p Selling price
+    input(type="number", name="sp")
+    p Quantity
+    input(type="number", name="Quantity")
+    p Expiry date
+    input(type="date", name="date")
+    br
+    p
+     input(type="submit")
+
+//index.pug
+extends layout
+
+block content
+        h1 #{title}
+        ul
+             each item,i in items
+             
+                p
+                li=item.Item
+                i Item Id:
+                ul=item.Item_id
+                i Item name:
+                ul=item.Item_name
+                i Cost price:
+                ul=item.Cost_price
+                i Selling price:
+                ul=item.Selling_price
+                i Quantity:
+                ul=item.Quantity
+                i Expiry date:
+                ul=item.Expiry_date
+
+//index1.pug
+
+//add_articles.pug
+doctype html
+html
+     head
+        title inventory
+     body
+        h1 #{title} 
+
+//layout.pug
+
+doctype html
+html
+     head
+        title inventory
+     body
+        block content
+        br
+        hr
+        footer
+            p Copyright &copy; 2017                
