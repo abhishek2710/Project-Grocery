@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 </head>
 <body>
+
     <ion-app>
         <ion-header>
             <ion-toolbar color="primary">
@@ -44,11 +45,9 @@
                     <ion-input type="text" id="input-amount"></ion-input>
                 </ion-item>
 
-                <div margin-vertical text-right></div>
-     
-                <ion-button id="btn-confirm">
-                    <ion-icon slot="start" name="add"></ion-icon>
-                    Submit</ion-button>
+                <div margin-vertical text-right>
+     <ion-button click="presentAlert()">SUBMIT</ion-button>
+     </div>
                 </ion-card-content>   
                 </ion-content>
             </ion-card> 
