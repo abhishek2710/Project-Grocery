@@ -1,0 +1,706 @@
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+            font: 18px Calibri;
+     
+            color: white;
+
+            border: 1px solid #ddd;
+             border-collapse: collapse;
+             background: rgba(0,0,0,.5);
+
+        }
+        
+        #paytype {
+            padding: 20px;
+            background-color: rgba(0,0,0,.5);
+            color: white;
+            margin-left: 70%;
+            
+        }
+        
+        th,
+        td {
+        	color: white;
+            padding: 10px 5px;
+            text-align: center;
+            
+        }
+        th {
+ 			background-color: rgba(0,0,0,.5);
+  			 color: white;
+  			 font-size: 18px;
+}
+tr{
+	color: white;
+	text-align: center;
+}
+        
+        body{
+
+        	color: white;
+        	        	 background-repeat: no-repeat;
+        		font-size: 18px;
+        	   background-size:cover;
+        	   
+        	
+        }
+
+        #addRow{
+        	font-size: 30px;
+        	cursor: pointer;
+        	padding: 10px 15px;
+        	color: red;
+        	text-align: center;
+        	border:none;
+        	text-decoration: none;
+ 			display: inline-block;
+ 			
+ 			
+        }
+       
+       
+        
+        .generate{
+        	background: rgba(0,0,0,.5);;
+        	border:none;
+        	padding: 10px 15px;
+        	font-size: 15px;
+        	
+
+        }
+        #confirm{
+        	 background: rgba(0,0,0,.5);
+            border: 1px solid black;
+            
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+        #confirm:hover{
+        	background-color:orange ;
+        	color: white;
+        	 transition:  1s;
+        }
+        #invoice {
+          background: rgba(0,0,0,.5);
+            border: 1px solid black;
+            
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 4px 2px;
+            cursor: pointer;
+            margin-left: 20px;
+            width: auto;
+        }
+        
+       
+       
+        
+        #addRow:hover {
+            color: darkblue;
+        }
+
+        #btn{
+        	color:red;
+        	cursor: pointer;
+        	padding: 15px;
+        	font-size:24px;
+        }
+        .edit{
+        	color:red;
+        	border: none;
+        	background-color: transparent;
+        	cursor: pointer;
+        	
+        	padding: 10px;
+        	
+        }
+
+        .save{
+        	background-color: transparent;
+        	cursor: pointer;
+        	border: none;
+        	color:red;
+        	
+        	padding: 10px;
+        }
+        #btn:hover,
+        .save:hover,
+        .edit:hover {
+            color: darkblue;
+        }
+        
+        #avatar {
+            width: 25px;
+            float: right;
+            margin-top: 25px;
+            margin-right: 10px;
+        }
+        
+        #invoice {
+            float: right;
+
+        }
+        
+        #addRow {
+            float: right;
+        }
+        
+        #totalprice {
+        	background: rgba(0,0,0,.5);
+            padding: 5px;
+            width: 15%;
+            
+        }
+        
+        #logo {
+            width: 90px;
+        }
+        #total{
+        	color: white;
+            font-size: 20px;
+           
+        }
+        input {
+            background: rgba(0,0,0,.7);
+            border: 1px #ddd;
+            padding: 10px;
+            color: white;
+        }
+        
+        #payments {
+            background: rgba(0, 0, 0, .5);
+            color: white;
+            width: 150px;
+            height: 60px;
+            position: absolute;
+            left: 70%;
+        }
+        
+        p {
+            margin-top:50px;
+            color: white;
+            font-size: 15px;
+        }
+        
+        .generate {
+        	background-color: rgba(0,0,0,.5);
+        	color: white;
+        	 position: absolute;
+             left: 70%;
+  			 top: 30%;
+        }
+        
+        #date {
+            border: 1px solid black;
+            width: 200px;
+            background-color: rgba(0,0,0,.5);
+        	color: white;
+            margin-left: 20px;
+            margin-top: 20px;
+            padding: 10px;
+            
+        }
+        .form-inline {
+        display: inline-block;
+    }
+	.navbar-header.col {
+		padding: 0 !important;
+	}	
+	.navbar {
+		color: #fff;
+		background: #926dde;
+		padding: 5px 16px;
+		border-radius: 0;
+		border: none;
+		box-shadow: 0 0 4px rgba(0,0,0,.1);
+	}
+	.navbar img {
+		
+		width: 36px;
+		height: 36px;
+		margin-right: 10px;
+	}
+	.navbar .navbar-brand {
+		color: #efe5ff;
+		padding-left: 0;
+		padding-right: 50px;
+		font-size: 24px;		
+	}
+	.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+		color: #fff;
+	}
+	.navbar .navbar-brand i {
+		font-size: 25px;
+		margin-right: 5px;
+	}
+	.search-box {
+        position: relative;
+    }	
+    .search-box input {
+        padding-right: 35px;
+		min-height: 38px;
+		border: none;
+		background: #faf7fd;
+        border-radius: 3px !important;
+    }
+	.search-box input:focus {		
+		background: #fff;
+		box-shadow: none;
+	}
+	.search-box .input-group-addon {
+        min-width: 35px;
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        padding: 10px 7px;
+		height: 100%;
+    }
+    .search-box i {
+        color: #a0a5b1;
+		font-size: 19px;
+    }
+	.navbar .nav-item i {
+		font-size: 18px;
+	}
+	.navbar .nav-item span {
+		position: relative;
+		top: 3px;
+	}
+	.navbar .nav > li a {
+		color: #efe5ff;
+		padding: 8px 15px;
+		font-size: 14px;		
+	}
+	.navbar .nav > li a:hover, .navbar .nav > li a:focus {
+		color: #fff;
+		text-shadow: 0 0 4px rgba(255,255,255,0.3);
+	}
+	.navbar .nav > li > a > i {
+		display: block;
+		text-align: center;
+	}
+	.navbar .dropdown-item i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+    .navbar .dropdown-item .material-icons {
+        font-size: 21px;
+        line-height: 16px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+	.navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+		color: #fff;
+		background: none !important;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .dropdown-menu li a {
+		color: #777 !important;
+		padding: 8px 20px;
+		line-height: normal;
+	}
+	.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
+		color: #333 !important;
+		background: transparent !important;
+	}
+	.navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus {
+		color: red;
+		text-shadow: 0 0 4px rgba(255,255,255,0.2);
+		background: transparent !important;
+	}
+	.navbar .nav .user-action {
+		padding: 9px 15px;
+	}
+	.navbar .navbar-toggle {
+		border-color: #fff;
+	}
+	.navbar .navbar-toggle .icon-bar {
+		background: #fff;
+	}
+	.navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+		background: transparent;
+	}
+	.navbar .navbar-nav .open .dropdown-menu {
+		background: #faf7fd;
+		border-radius: 1px;
+		border-color: #faf7fd;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .divider {
+		background-color: #e9ecef !important;
+	}
+	@media (min-width: 1200px){
+		.form-inline .input-group {
+			width: 350px;
+			margin-left: 30px;
+		}
+	}
+	@media (max-width: 1199px){
+		.navbar .nav > li > a > i {
+			display: inline-block;			
+			text-align: left;
+			min-width: 30px;
+			position: relative;
+			top: 4px;
+		}
+		.navbar .navbar-collapse {
+			border: none;
+			box-shadow: none;
+			padding: 0;
+		}
+		.navbar .navbar-form {
+			border: none;			
+			display: block;
+			margin: 10px 0;
+			padding: 0;
+		}
+		.navbar .navbar-nav {
+			margin: 8px 0;
+		}
+		.navbar .navbar-toggle {
+			margin-right: 0;
+		}
+		.input-group {
+			width: 100%;
+		}
+        .navbar .navbar-brand b {
+		color:  #eb5844;
+		padding-left: 0;
+		padding-right: 50px;
+		font-size: 25px;		
+	}
+	.navbar .navbar-brand  {
+		color:  white;
+		padding-left: 0;
+		padding-right: 50px;
+		font-size: 25px;		
+	}
+    </style>
+    <title>Billing section</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+
+<body style="background-image:url(https://previews.123rf.com/images/warrengoldswain/warrengoldswain1703/warrengoldswain170300182/74193213-food-border-frame-made-from-red-coloured-fruits-and-vegetables-produce-design-poster-with-copy-space.jpg);">
+	
+    
+    <img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" id="avatar">
+
+ <nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
+	<div class="navbar-header d-flex col">
+		<a class="navbar-brand" href="#"  style="color: white;">TO<b style="color: #eb5844;">KO</b></a>  		
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+			<span class="navbar-toggler-icon"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
+		<form class="navbar-form form-inline">
+			<div class="input-group search-box">								
+				<input type="text" id="search" class="form-control" placeholder="Search here...">
+				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+			</div>
+		</form>
+		<ul class="nav navbar-nav navbar-right ml-auto">
+			<li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
+			<li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Setting</span></a></li>
+				
+			<li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+			<li class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> Admin <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></li>
+					<li><a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a></li>
+					<li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></li>
+					<li class="divider dropdown-divider"></li>
+					<li><a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+        
+        <div id="print" style="color:white; background:rgba(0,0, 0, 0.6);margin-top: 60px;padding:25px;">
+            <p style="font-size: 20px;background:rgba(0,0,0,.5);width:15%"> Date of purchase: </p>
+            <p id="date"></p>
+            <p id="total">
+            Total Price : <input type="text" id="totalprice" value="0"></p>
+            <button onclick="makeid(4);" class="generate"><input type="text" align="right" id="invoice" placeholder="Click to Generate Invoice No:">Bill No.</button></input>
+
+             
+            <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+                
+                		
+                	
+                <tr>
+                    <th style="text-align: center;">Item Name</th>
+                   
+                    <th style="text-align: center;" class="new_priceitem">Price of Item</th>
+                    <th style="text-align: center;">Tax</th>
+                    <th style="text-align: center;">Quantity</th>
+                    <th style="text-align: center;">Price</th>
+                    <th> <i class='fas fa-plus' class="add" id="addRow" onclick="add_row();"> </i><br> </th>
+                </tr>
+                <tr>
+                    <td class="row"><input type="text" id="new_itemname"></td>
+                    
+                    <td class="row"><input type="text" id="new_priceitem"></td>
+                    <td class="row"><input type="text" id="new_tax"></td>
+                    <td class="row"><input type="text" id="new_quantity" onchange="calculateprice();"></td>
+
+                    <td><input type="text" id="new_price"></td>
+                    <td></td>
+                </tr>
+            </table>
+                  <div id="paytype" >
+                <p style="font-size:15px;"> Payment Mode: <p>
+                    <form action="#">
+  <input list="payments" name="payment">
+  <datalist id="payments" >
+    <option value="debit card">
+    <option value="cash">
+    <option value="credit card">
+    <option value="coupons">
+    <option value="online transaction">
+  </datalist>
+   <button id="confirm" onclick="save();">Proceed</button>
+</form>
+            </div>     
+
+            <p id="demo"></p>
+        </div>
+    
+     
+    <script>
+        document.getElementById("date").innerHTML = Date();
+
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result = result + characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            document.getElementById("invoice").value = result;
+        }
+
+
+        function edit_row(no) {
+        	
+           document.getElementById("edit_button" + no).style.display = "none";
+            document.getElementById("save_button" + no).style.display = "block";
+			
+            var itemname = document.getElementById("itemname_row" + no);
+            
+            var priceitem = document.getElementById("priceitem_row" + no);
+            var tax = document.getElementById("tax_row" + no);
+            var quantity = document.getElementById("quantity_row" + no);
+
+            var price = document.getElementById("price_row" + no);
+
+            var itemname_data = itemname.innerHTML;
+           
+            var priceitem_data = priceitem.innerHTML;
+            var tax_data = tax.innerHTML;
+            var quantity_data = quantity.innerHTML;
+
+            var price_data = price.innerHTML;
+            console.log(no);
+            itemname.innerHTML = "<input type='text' id='itemname_text" + no + "' value='" + itemname_data + "'>";
+            
+            priceitem.innerHTML = "<input  type='text' id='priceitem_text" + no + "' value='" + priceitem_data + "'>";
+            tax.innerHTML = "<input type='text' id='tax_text" + no + "' value='" + tax_data + "'>";
+            quantity.innerHTML = "<input onchange='newcalculateprice(" + no + ");' type='text' id='quantity_text" + no + "' value='" + quantity_data + "'>";
+
+            price.innerHTML = "<input type='text' id='price_text" + no + "' value='" + price_data + "'>";
+
+        }
+
+        function save_row(no) {
+            var itemname_val = document.getElementById("itemname_text" + no).value;
+            
+            var priceitem_val = document.getElementById("priceitem_text" + no).value;
+            var tax_val = document.getElementById("tax_text" + no).value;
+            var quantity_val = document.getElementById("quantity_text" + no).value;
+
+            var price_val = document.getElementById("price_text" + no).value;
+
+            document.getElementById("itemname_row" + no).innerHTML = itemname_val;
+           
+            document.getElementById("priceitem_row" + no).innerHTML = priceitem_val;
+            document.getElementById("tax_row" + no).innerHTML = tax_val;
+            document.getElementById("quantity_row" + no).innerHTML = quantity_val;
+
+            document.getElementById("price_row" + no).innerHTML = price_val;
+
+            document.getElementById("edit_button" + no).style.display = "block";
+            document.getElementById("save_button" + no).style.display = "none";
+        }
+
+        function add_row() {
+            var new_itemname = document.getElementById("new_itemname").value;
+            
+            var new_priceitem = document.getElementById("new_priceitem").value;
+            var new_tax = document.getElementById("new_tax").value;
+            var new_quantity = document.getElementById("new_quantity").value;
+
+            var new_price = document.getElementById("new_price").value;
+
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length) - 1;
+            var row = table.insertRow(table_len).outerHTML =
+                "<tr id='row" + table_len + "'>" +
+                "<td id='itemname_row" + table_len + "'>" + new_itemname + "</td>" +
+                
+                "<td id='priceitem_row" + table_len + "'>" + new_priceitem + "</td>" +
+                "<td id='tax_row" + table_len + "'>" + new_tax + "</td>" +
+                "<td id='quantity_row" + table_len + "'>" + new_quantity + "</td>" +
+
+                "<td id='price_row" + table_len + "'>" + new_price + "</td>" +
+                "<td>" +
+                " <button style='font-size:24px;' id='edit_button" + table_len + "' class='edit' onclick='edit_row(" + table_len + ")'><i class='far fa-edit' > </i> </button>" +
+                "<button style='font-size:24px;' id='save_button" + table_len + "' class='save' onclick='save_row(" + table_len + ")'> <i class='fa fa-save' ></i> </button>"+
+                " <i class='fa fa-trash' class='delete' id='btn' onclick='updateprice(" + table_len + ");delete_row(" + table_len + ")'</i>" +
+                "</td>" +
+                "</tr>";
+
+            document.getElementById("new_itemname").value = "";
+           
+            document.getElementById("new_priceitem").value = "";
+            document.getElementById("new_tax").value = "";
+            document.getElementById("new_quantity").value = "";
+
+            document.getElementById("new_price").value = "";
+        }
+
+        function calculateprice(no) {
+            var z = document.getElementById('new_priceitem').value;
+            var y = document.getElementById('new_tax').value;
+            var x = document.getElementById('new_quantity').value;
+            var tot = (parseFloat(x) * parseFloat(z)) + parseFloat(y);
+            if (!isNaN(tot)) {
+                document.getElementById("new_price").value = tot;
+            }
+            var v = document.getElementById("totalprice").value;
+            var s = document.getElementById("new_price").value;
+            var final = parseFloat(v) + parseFloat(s);
+            if (!isNaN(final)) {
+                document.getElementById("totalprice").value = final;
+            }
+        }
+
+        function newcalculateprice(r) {
+            var old = document.getElementById("price_text" + r).value;
+            console.log(old);
+            var z = document.getElementById("quantity_text" + r).value;
+            var y = document.getElementById("priceitem_text" + r).value;
+            var x = document.getElementById("tax_text" + r).value;
+            console.log(x, y, z);
+
+            var tot = (parseFloat(y) * parseFloat(z)) + parseFloat(x);
+            var updation = parseFloat(old) - parseFloat(tot);
+            if (!isNaN(tot)) {
+                document.getElementById("price_text" + r).value = tot;
+                console.log(tot);
+            }
+            var final = document.getElementById("totalprice").value;
+            console.log(final);
+            var newprice = parseFloat(final) - parseFloat(updation);
+            document.getElementById("totalprice").value = newprice;
+
+
+        }
+
+        function delete_row(no) {
+            document.getElementById("row" + no + "").outerHTML = "";
+        }
+
+        function updateprice(r) {
+            var v = document.getElementById("totalprice").value;
+            var f = document.getElementById("price_row" + r).innerHTML;
+            var final = parseFloat(v) - parseFloat(f);
+            console.log(final);
+            if (!isNaN(final)) {
+                document.getElementById("totalprice").value = final;
+            }
+        }
+
+
+
+        function save() {
+            alert('saving file to excel file');
+            exportTableToExcel('data_table', 'print');
+        }
+
+        function exportTableToExcel(tableID, div) {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var divselect = document.getElementById(div);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+            var divhtml = divselect.outerHTML.replace(/ /g, '%20');
+            // Specify file name
+            var filename = filename ? filename + '.xls' : 'Bill.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+                var blob1 = new Blob1(['\ufeff', divhtml], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob1, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                downloadLink.href = 'data:' + dataType + ', ' + divhtml;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+
+        }
+    </script>
+   
+</body>
+
+</html>
+
+
+
+
