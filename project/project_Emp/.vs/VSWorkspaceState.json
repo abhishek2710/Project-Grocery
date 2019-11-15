@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\controllers",
+    "\\models",
+    "\\views",
+    "\\views\\employee",
+    "\\views\\Layouts"
+  ],
+  "SelectedNode": "\\views\\employee\\list.hbs",
+  "PreviewInSolutionExplorer": false
+}
